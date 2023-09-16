@@ -1,8 +1,8 @@
 import React ,{useState,useEffect}from 'react';
-import './App.css';
+import './index.css';
 import axios from 'axios';
-import EmployeeDropdown from './EmployeeDropdown';
-import DatePicker from './DatePicker';
+import { Link } from 'react-router-dom';
+
  
 
 function EmployeeManagement() {
@@ -79,6 +79,16 @@ function EmployeeManagement() {
       <h1 className="main-heading">Employee Registration Form</h1>
       
        
+      <nav>
+        <ul>
+          <li>
+            <Link to="/employee-dropdown">Employee Dropdown</Link>
+          </li>
+          <li>
+            <Link to="/date-picker">Date Picker</Link>
+          </li>
+        </ul>
+      </nav>
 
 
       {/* Add Employee Form */}
@@ -106,15 +116,18 @@ function EmployeeManagement() {
         />
         </div>
         </div>
+        
         <input
         
         className="date-group-data"
+        
           type="date"
           placeholder="Date of Birth"
           value={newEmployee.DOB}
           onChange={(e) => setNewEmployee({ ...newEmployee, DOB: e.target.value })}
           required
         />
+        
         <input
         className="form-input"
           type="text"
@@ -254,24 +267,8 @@ function EmployeeManagement() {
           <button className="btn-cancel" onClick={() => setEditingEmployee(null)}>Cancel</button>
         </div>
       )}
-      <EmployeeDropdown data={employees}/>
       
-
-
-
-
-
-
       
-
-
-
-
-
-
-
-
-      <DatePicker/>
     </div>
     
   );
